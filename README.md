@@ -107,3 +107,49 @@ CONVEX_DEPLOYMENT=dev:your-deployment-name
 # Convex Cloud URL for your deployment
 VITE_CONVEX_URL=https://your-deployment-name.convex.cloud
 ```
+
+## 5. **Test Locally**
+
+To test the app on your local machine:
+
+```bash
+npx convex dev
+```
+
+This starts a local Convex server and runs your app against it. You can now develop and test without deploying to the cloud.
+
+Once you're happy with your changes, push them to your convex cloud:
+
+```bash
+npx convex deploy
+```
+
+---
+
+## 6. **Push to GitHub**
+
+Initialize a Git repository (if you haven’t already) and push the project:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/yourusername/noah-landscaping-site.git
+git push -u origin main
+```
+
+Replace the remote URL with your actual GitHub repo.
+
+---
+
+## 7. **Publish on Vercel**
+
+1. Go to [Vercel](https://vercel.com/) and sign in.
+2. Click **"New Project"** and import your GitHub repo.
+3. In the setup:
+   - Set the framework to **React** (or auto-detect).
+   - Add the same `.env` variables used locally.
+4. Click **Deploy**.
+
+Your app will be live at `https://your-project-name.vercel.app` after deployment.
