@@ -52,9 +52,9 @@ A modern, single-page web app for booking and managing landscape lighting consul
 
 - `/convex/`  
   Convex backend functions (mutations, queries, data models)
-- `/components/`  
+- `/src/`  
   React components for calculator, booking calendar, admin dashboard, call button, etc.
-- `/pages/`  
+- `/src/main.tsx`  
   Main SPA entry point
 
 ---
