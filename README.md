@@ -108,7 +108,7 @@ CONVEX_DEPLOYMENT=dev:your-deployment-name
 VITE_CONVEX_URL=https://your-deployment-name.convex.cloud
 ```
 
-## 5. **Test Locally**
+5. **Test Locally**
 
 To test the app on your local machine:
 
@@ -124,9 +124,7 @@ Once you're happy with your changes, push them to your convex cloud:
 npx convex deploy
 ```
 
----
-
-## 6. **Push to GitHub**
+6. **Push to GitHub**
 
 Initialize a Git repository (if you haven’t already) and push the project:
 
@@ -141,9 +139,7 @@ git push -u origin main
 
 Replace the remote URL with your actual GitHub repo.
 
----
-
-## 7. **Publish on Vercel**
+7. **Publish on Vercel**
 
 1. Go to [Vercel](https://vercel.com/) and sign in.
 2. Click **"New Project"** and import your GitHub repo.
