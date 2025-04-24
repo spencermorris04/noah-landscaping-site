@@ -141,11 +141,11 @@ Replace the remote URL with your actual GitHub repo.
 
 7. **Publish on Vercel**
 
-1. Go to [Vercel](https://vercel.com/) and sign in.
-2. Click **"New Project"** and import your GitHub repo.
-3. In the setup:
+- Go to [Vercel](https://vercel.com/) and sign in.
+- Click **"New Project"** and import your GitHub repo.
+- In the setup:
    - Set the framework to **React** (or auto-detect).
    - Add the same `.env` variables used locally.
-4. Click **Deploy**.
+- Click **Deploy**.
 
 Your app will be live at `https://your-project-name.vercel.app` after deployment.
