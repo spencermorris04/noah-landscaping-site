@@ -22,17 +22,22 @@ export function ServiceCalculator() {
     transformers: 20,
   };
 
-  const totalCost =
-    counts.spotlights * prices.spotlights +
-    counts.pathwayLights * prices.pathwayLights +
-    counts.areaLights * prices.areaLights +
-    counts.transformers * prices.transformers;
-
   const totalMinutes =
     counts.spotlights * times.spotlights +
     counts.pathwayLights * times.pathwayLights +
     counts.areaLights * times.areaLights +
     counts.transformers * times.transformers;
+    
+  const hourlyRate = 20; // $20 per hour
+  const laborCost = Math.ceil(totalMinutes / 60) * hourlyRate; // Round up to the nearest hour
+  
+  const equipmentCost = 
+    counts.spotlights * prices.spotlights +
+    counts.pathwayLights * prices.pathwayLights +
+    counts.areaLights * prices.areaLights +
+    counts.transformers * prices.transformers;
+    
+  const totalCost = equipmentCost + laborCost;
 
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
