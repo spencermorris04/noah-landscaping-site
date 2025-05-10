@@ -1,13 +1,13 @@
-# Woodmont Landscape Lighting & Decor
+# Cherokee landscaping & Decor
 
-A modern, single-page web app for booking and managing landscape lighting consultations in the Woodmont neighborhood (Cherokee County, GA). Built with [Convex](https://convex.dev) for backend and state management, this project is designed for a clean, image-free user experience with strong interactivity and a simple admin workflow.
+A modern, single-page web app for booking and managing landscaping consultations in the Cherokee neighborhood (Cherokee County, GA). Built with [Convex](https://convex.dev) for backend and state management, this project is designed for a clean, image-free user experience with strong interactivity and a simple admin workflow.
 
 ---
 
 ## Features
 
 - **Instant Quote Calculator:**  
-  Users can estimate the cost and installation time for their landscape lighting project by entering the number of spotlights, pathway lights, area lights, and transformers. Pricing and time estimates are shown live.
+  Users can estimate the cost and installation time for their landscaping project by entering the number of spotlights, pathway lights, area lights, and transformers. Pricing and time estimates are shown live.
 
 - **Consultation Booking Calendar:**  
   Users can book an in-person consultation by selecting an available day (one per day, no time slots). The form collects name, address, and phone number.

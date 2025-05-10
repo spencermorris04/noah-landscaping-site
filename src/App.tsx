@@ -85,7 +85,7 @@ function Header() {
         {/* Site name */}
         <h1 className="text-2xl font-display font-bold">
           <span className="text-blue-600">Cherokee</span>{" "}
-          <span className="text-blue-400">Landscape Lighting</span>
+          <span className="text-blue-400">Landscaping</span>
         </h1>
 
         {/* Login/Admin actions */}
@@ -146,7 +146,7 @@ function Footer() {
         {/* Company Info */}
         <div className="mb-4 md:mb-0">
           <div className="font-display font-bold text-xl">
-            Cherokee Landscape Lighting
+            Cherokee Landscaping
           </div>
           <div className="text-blue-200 text-sm mt-1">
             Serving Cherokee County and surrounding areas
