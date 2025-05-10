@@ -84,7 +84,7 @@ function Header() {
       <div className=" flex justify-between items-center">
         {/* Site name */}
         <h1 className="text-2xl font-display font-bold">
-          <span className="text-blue-600">Canton</span>{" "}
+          <span className="text-blue-600">Cherokee</span>{" "}
           <span className="text-blue-400">Landscape Lighting</span>
         </h1>
 
@@ -146,7 +146,7 @@ function Footer() {
         {/* Company Info */}
         <div className="mb-4 md:mb-0">
           <div className="font-display font-bold text-xl">
-            Canton Landscape Lighting
+            Cherokee Landscape Lighting
           </div>
           <div className="text-blue-200 text-sm mt-1">
             Serving Cherokee County and surrounding areas
@@ -156,7 +156,7 @@ function Footer() {
         {/* Contact */}
         <div className="text-center md:text-right">
           <div className="text-blue-200 text-sm">
-            © {new Date().getFullYear()} Canton Lighting
+            © {new Date().getFullYear()} Cherokee Landscaping
           </div>
           <div className="mt-2">
             <a
@@ -166,10 +166,10 @@ function Footer() {
               (470) 641-8216
             </a>
             <a
-              href="mailto:noah@cantonlighting.com"
+              href="mailto:noah@cherokeelandscaping.com"
               className="text-white hover:text-blue-200 transition-colors"
             >
-              noah@cantonlighting.com
+              noah@cherokeelandscaping.com
             </a>
           </div>
         </div>
