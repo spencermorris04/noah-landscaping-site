@@ -149,7 +149,7 @@ function Footer() {
             Canton Landscape Lighting
           </div>
           <div className="text-blue-200 text-sm mt-1">
-            Serving Picket County and surrounding areas and abroad
+            Serving Cherokee County and surrounding areas
           </div>
         </div>
 
