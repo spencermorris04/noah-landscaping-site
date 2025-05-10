@@ -2,12 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 html {
   scroll-behavior: smooth;
 }
 
 :root {
   --color-light: #333333;
+=======
+:root {
+  --color-light: #ffffff;
+>>>>>>> f76240e2ca1d67477731d450fc624d84f5b93f31
   --color-dark: #171717;
 }
 
@@ -37,7 +42,11 @@ body {
     "Segoe UI Symbol",
     "Noto Color Emoji";
   color: var(--color-dark);
+<<<<<<< HEAD
   background: var(--color-dark);
+=======
+  background: var(--color-light);
+>>>>>>> f76240e2ca1d67477731d450fc624d84f5b93f31
 }
 
 .input-field {

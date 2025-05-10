@@ -197,9 +197,15 @@ export function BookingCalendar() {
             <div className="space-y-4 flex-1 flex flex-col">
               {(
                 [
+<<<<<<< HEAD
                   ["name", "Your Name", "Name?"],
                   ["address", "Your Address", "Location?"],
                   ["phone", "Your Phone", "Phone Number?"],
+=======
+                  ["name", "Your Name", "What should I call you?"],
+                  ["address", "Your Address", "Where's the project located?"],
+                  ["phone", "Your Phone", "Best number to reach you?"],
+>>>>>>> f76240e2ca1d67477731d450fc624d84f5b93f31
                 ] as const
               ).map(([field, label, placeholder]) => (
                 <div key={field} className="relative">
