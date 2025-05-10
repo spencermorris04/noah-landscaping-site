@@ -2,17 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
 html {
   scroll-behavior: smooth;
 }
 
 :root {
   --color-light: #333333;
-=======
-:root {
-  --color-light: #ffffff;
->>>>>>> f76240e2ca1d67477731d450fc624d84f5b93f31
   --color-dark: #171717;
 }
 
@@ -21,7 +16,8 @@ html {
 }
 
 .button {
-  @apply bg-gradient-to-r bg-blue-500;
+  /* Fixed gradient application: Tailwind requires both direction and from/to colors */
+  @apply bg-gradient-to-r from-blue-500 to-blue-700;
 }
 
 body {
@@ -42,11 +38,7 @@ body {
     "Segoe UI Symbol",
     "Noto Color Emoji";
   color: var(--color-dark);
-<<<<<<< HEAD
   background: var(--color-dark);
-=======
-  background: var(--color-light);
->>>>>>> f76240e2ca1d67477731d450fc624d84f5b93f31
 }
 
 .input-field {
@@ -54,7 +46,7 @@ body {
 }
 
 .auth-button {
-  @apply w-full py-2 rounded-md text-white font-medium button hover:opacity-90 transition-opacity;
+  @apply w-full py-2 rounded-md text-white font-medium bg-gradient-to-r from-blue-500 to-blue-700 hover:opacity-90 transition-opacity;
 }
 
 .link-text {
