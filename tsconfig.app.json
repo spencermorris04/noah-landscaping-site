@@ -4,11 +4,7 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-<<<<<<< HEAD
-    "module": "ES2020",
-=======
     "module": "ESNext",
->>>>>>> f76240e2ca1d67477731d450fc624d84f5b93f31
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -28,10 +24,6 @@
     "paths": {
       "@/*": ["./src/*"]
     }
-<<<<<<< HEAD
-  }, 
-=======
   },
->>>>>>> f76240e2ca1d67477731d450fc624d84f5b93f31
   "include": ["src"]
 }
