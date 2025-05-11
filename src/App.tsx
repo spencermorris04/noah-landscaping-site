@@ -15,24 +15,10 @@ import { ServiceCalculator } from "./ServiceCalculator"
 import { CallButton } from "./CallButton"
 import { ProductSlider } from "./ProductSlider"
 import { Hero } from "./Hero"
+import HomePage from "./Home"
 
 export default function App() {
-  return (
-    <div className="flex flex-col min-h-screen font-sans text-blue-900">
-      <Header />
-      <main className="flex-1 p-4 md:p-8 bg-gradient-to-b from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-800">
-        {/* Main route definitions */}
-        <Routes>
-          <Route path="/" element={<PublicView />} />
-          <Route path="/admin" element={<AdminRoute />} />
-        </Routes>
-      </main>
-      <CallButton />
-      <Footer />
-      {/* Toast notifications */}
-      <Toaster position="top-center" />
-    </div>
-  )
+  return <HomePage />;
 }
 
 // Admin-only route protection: redirects if not logged in
