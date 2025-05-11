@@ -15,7 +15,6 @@ import { ServiceCalculator } from "./ServiceCalculator"
 import { CallButton } from "./CallButton"
 import { ProductSlider } from "./ProductSlider"
 import { Hero } from "./Hero"
-import heroImg from "./HeroImage.jpg"
 
 export default function App() {
   return (
