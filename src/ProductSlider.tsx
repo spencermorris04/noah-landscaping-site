@@ -27,7 +27,7 @@ const lightingData: Product[] = [
   {
     name: "Southwire 250 ft. 12/2 Low-Voltage Landscape Wire",
     store: "Home Depot",
-    image: "../wire.png",
+    image: "https://images.thdstatic.com/productImages/91d5a334-aec4-4604-8ec2-46af52135845/svn/southwire-landscape-lighting-wires-55213444-64_600.jpg",
     price: "$119.77",
     url: "https://www.homedepot.com/p/Southwire-250-ft-12-2-Black-Stranded-CU-Low-Voltage-Landscape-Lighting-Wire-55213444/300836209"
   }
@@ -37,34 +37,37 @@ export function ProductSlider() {
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: {
-      perView: 3,
-      spacing: 30,
-      origin: 'center',
+      perView: 1,
+      spacing: 16,
     },
-    
-  defaultAnimation: {
-    duration: 100, // Transition duration in milliseconds
-  },
-    slideChanged(slider) {
-      const slides = slider.container.querySelectorAll('.keen-slider__slide');
-      slides.forEach((slide, idx) => {
-        slide.classList.toggle('scale-100', idx === slider.track.details.rel);
-        slide.classList.toggle('scale-90', idx !== slider.track.details.rel);
-      });
+    breakpoints: {
+      "(min-width: 768px)": {
+        slides: {
+          perView: 3,
+          spacing: 30,
+        },
+      },
     },
-  });
+    defaultAnimation: { duration: 100 },
+    slideChanged(s) {
+      s.container
+       .querySelectorAll(".keen-slider__slide")
+       .forEach((slide, idx) => {
+         slide.classList.toggle("scale-100", idx === s.track.details.rel)
+         slide.classList.toggle("scale-90", idx !== s.track.details.rel)
+       })
+    },
+  })
 
   return (
-    <section className="my-10 px-4 relative">
+    <section className="my-10 px-4">
       <h3 className="text-2xl font-bold text-white mb-4 text-center">
         Featured Lighting Options
       </h3>
-
-      {/* Carousel container */}
       <div className="relative">
-                <div
+        <div
           ref={sliderRef}
-          className="keen-slider min-h-[300px] transition-transform duration-300"
+          className="keen-slider h-[350px] w-full transition-transform duration-300"
         >
           {lightingData.map((item, i) => (
             <div
@@ -79,26 +82,29 @@ export function ProductSlider() {
                     className="w-full h-48 object-cover rounded"
                   />
                   <div className="mt-4 text-center">
-                    <div className="font-semibold text-blue-900">{item.name}</div>
-                    <div className="text-blue-700 text-sm">{item.store}</div>
-                    <div className="text-blue-500 font-bold">{item.price}</div>
+                    <div className="font-semibold text-blue-900">
+                      {item.name}
+                    </div>
+                    <div className="text-blue-700 text-sm">
+                      {item.store}
+                    </div>
+                    <div className="text-blue-500 font-bold">
+                      {item.price}
+                    </div>
                   </div>
                 </a>
               </div>
             </div>
           ))}
         </div>
-
-
-        {/* Arrows */}
         <button
-          onClick={() => slider.current?.next()}
+          onClick={() => slider.current?.prev()}
           className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white/80 text-blue-700 hover:bg-blue-100 p-2 rounded-full shadow-md"
         >
           ←
         </button>
         <button
-          onClick={() => slider.current?.prev()}
+          onClick={() => slider.current?.next()}
           className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white/80 text-blue-700 hover:bg-blue-100 p-2 rounded-full shadow-md"
         >
           →
