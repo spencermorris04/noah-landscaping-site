@@ -19,22 +19,21 @@ function AdminRoute() {
   return me ? <AdminDashboard /> : <Navigate to="/" replace />;
 }
 
-// Layout for service calculator + booking calendar
 function ServicesLayout() {
   return (
-    <section className="w-full px-6 py-12">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+    <section className="w-full px-4 sm:px-10 lg:px-16 py-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
         <div className="w-full">
-        <ServiceCalculator />
+          <ServiceCalculator />
         </div>
         <div className="w-full">
-        <BookingCalendar />
+          <BookingCalendar />
         </div>
-    </div>
+      </div>
     </section>
-
-  )
+  );
 }
+
 
 export default function HomePage() {
     const me = useQuery(api.auth.loggedInUser);
@@ -43,32 +42,33 @@ export default function HomePage() {
     <div className="bg-white text-gray-900">
       {/* Header */}
         <header className="bg-[#0f3d2e] text-white sticky top-0 z-50 shadow-md">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center overflow-x-auto">
-            <h1 className="text-xs sm:text-xl font-bold whitespace-nowrap">
+            <div className="w-full px-4 py-4 flex justify-between items-center">
+                <h1 className="text-xs sm:text-xl font-bold whitespace-nowrap">
                 Cherokee Landscaping
-            </h1>
-            <nav className="flex items-center gap-x-4 text-xs sm:text-sm font-medium whitespace-nowrap">
-            <a href="#services" className="hover:text-lime-400">Services</a>
-            <a href="#about" className="hover:text-lime-400">About</a>
-            <a href="#pricing" className="hover:text-lime-400">Pricing</a>
-            {me ? (
-              <>
-                <a href="/admin" className="hover:text-lime-400">Admin</a>
-                <SignOutButton />
-              </>
-            ) : (
-              <button
-                onClick={() =>
-                  (document.getElementById("signin") as HTMLDialogElement)?.showModal()
-                }
-                className="hover:text-lime-400 transition"
-              >
-                Login
-              </button>
-            )}
-            </nav>
-        </div>
-        </header>
+                </h1>
+                <nav className="flex items-center gap-x-4 text-xs sm:text-sm font-medium whitespace-nowrap">
+                <a href="#services" className="hover:text-lime-400">Services</a>
+                <a href="#about" className="hover:text-lime-400">About</a>
+                <a href="#pricing" className="hover:text-lime-400">Pricing</a>
+                {me ? (
+                    <>
+                    <a href="/admin" className="hover:text-lime-400">Admin</a>
+                    <SignOutButton />
+                    </>
+                ) : (
+                    <button
+                    onClick={() =>
+                        (document.getElementById("signin") as HTMLDialogElement)?.showModal()
+                    }
+                    className="hover:text-lime-400 transition"
+                    >
+                    Login
+                    </button>
+                )}
+                </nav>
+            </div>
+            </header>
+
 
         {/* Login Modal */}
       <dialog id="signin" className="p-6 rounded-lg shadow-xl backdrop:bg-black/20">
@@ -219,11 +219,10 @@ export default function HomePage() {
       </section>
 
       {/* SCHEDULING AND BOOKING */}
-        <section className="bg-gray-100 py-2 sm:py-16 px-4">
-        <div className="w-full mx-auto text-center">
-            <ServicesLayout />
-        </div>
-        </section>
+    <section className="bg-gray-100 py-2 sm:py-16 px-4">
+        <ServicesLayout />
+    </section>
+
 
       {/* Footer */}
       <footer className="bg-[#111827] text-white py-10 px-4">
