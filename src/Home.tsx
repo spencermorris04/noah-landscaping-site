@@ -46,7 +46,7 @@ export default function HomePage() {
                 <h1 className="text-xs sm:text-xl font-bold whitespace-nowrap">
                 Cherokee Landscaping
                 </h1>
-                <nav className="flex items-center gap-x-4 text-xs sm:text-sm font-medium whitespace-nowrap">
+                <nav className="flex items-center gap-x-4 text-xs sm:text-base font-medium whitespace-nowrap">
                 <a href="#services" className="hover:text-lime-400">Services</a>
                 <a href="#about" className="hover:text-lime-400">About</a>
                 <a href="#pricing" className="hover:text-lime-400">Pricing</a>
