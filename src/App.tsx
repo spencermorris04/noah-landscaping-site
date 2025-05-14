@@ -62,7 +62,7 @@ function PublicView() {
 
 // Top navbar with login and admin access
 function Header() {
-  const me = useQuery(api.auth.loggedInUser)
+  //const me = useQuery(api.auth.loggedInUser)
 
   return (
     <header className="sticky top-0 z-50 bg-gray-100/90 dark:bg-gray-900/80 backdrop-blur p-4 shadow-sm">
@@ -75,7 +75,7 @@ function Header() {
 
         {/* Login/Admin actions */}
         <div className="flex gap-2 items-center">
-          {me ? (
+          {/*{me ? (
             <>
               <a href="/admin" className="text-blue-600 hover:underline">
                 Admin
@@ -91,11 +91,12 @@ function Header() {
             >
               Login
             </button>
-          )}
+          )}*/}
         </div>
       </div>
 
-      {/* Login modal */}
+      {/*
+      {/* Login modal /}
       <dialog id="signin" className="p-6 rounded-lg shadow-xl backdrop:bg-black/20">
         <SignInForm />
         <button
@@ -106,7 +107,7 @@ function Header() {
         >
           ✕
         </button>
-      </dialog>
+      </dialog>*/}
     </header>
   )
 }
