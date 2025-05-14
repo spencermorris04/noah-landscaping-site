@@ -29,6 +29,20 @@ export const {
 export const loggedInUser = query({
   handler: async (ctx) => {
     const userId = await getAuthUserId(ctx);
-    return userId ? await ctx.db.get(userId) : null;
+    if (!userId) return null;
+
+    const authAccount = await ctx.db.query("authAccounts")
+      .filter((q) => q.eq(q.field("userId"), userId))
+      .unique();
+
+    if (!authAccount) return null;
+
+    const user = await ctx.db
+      .query("users")
+      .withIndex("accountId", (q) => q.eq("accountId", authAccount._id))
+      .unique();
+
+    return user ?? null;
   },
 });
+
