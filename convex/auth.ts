@@ -8,10 +8,10 @@ import { query } from "./_generated/server";
  */
 const NoSignupPassword = Password({
   profile: (params) => {
-    if (params.flow === "signUp") {
-      throw new Error("Sign-ups are disabled for this app.");
-    }
-    // the provider still needs an email to work:
+    // uncomment to disable sign ups
+    // if (params.flow === "signUp") {
+    //   throw new Error("Sign-ups are disabled for this app.");
+    // }
     return { email: params.email as string };
   },
 });
@@ -29,20 +29,17 @@ export const {
 export const loggedInUser = query({
   handler: async (ctx) => {
     const userId = await getAuthUserId(ctx);
-    if (!userId) return null;
-
-    const authAccount = await ctx.db.query("authAccounts")
-      .filter((q) => q.eq(q.field("userId"), userId))
-      .unique();
-
-    if (!authAccount) return null;
-
-    const user = await ctx.db
-      .query("users")
-      .withIndex("accountId", (q) => q.eq("accountId", authAccount._id))
-      .unique();
-
-    return user ?? null;
+    return userId ? await ctx.db.get(userId) : null;
   },
 });
 
+export const signUpsEnabled = query({
+  handler: async (_ctx) => {
+    // If the sign-up disabling code is commented out, sign-ups are enabled.
+    // If you want to toggle this dynamically, you could use an env var or DB flag.
+    // For now, just return true if the check is commented out.
+    return true;
+    // If you want to control this with an env var:
+    // return process.env.SIGNUPS_ENABLED !== "false";
+  },
+});

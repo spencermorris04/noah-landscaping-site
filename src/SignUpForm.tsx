@@ -3,7 +3,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 
-export function SignInForm() {
+export function SignUpForm() {
   const { signIn } = useAuthActions();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -11,7 +11,7 @@ export function SignInForm() {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Sign In</h2>
+      <h2 className="text-xl font-bold mb-4">Create Admin Account</h2>
       
       <form
         className="flex flex-col gap-4 w-72"
@@ -23,28 +23,28 @@ export function SignInForm() {
           try {
             const formData = new FormData(e.target as HTMLFormElement);
             // Log the form data for debugging (remove in production)
-            console.log("Signing in with:", formData.get("email"));
-            formData.set("flow", "signIn");
+            console.log("Signing up with:", formData.get("email"));
+            formData.set("flow", "signUp");
             
             // Use async/await for clearer error handling
             await signIn("password", formData);
             
-            // If we get here, authentication succeeded
-            console.log("Authentication successful!");
-            toast.success("Signed in successfully");
+            // If we get here, sign up succeeded
+            console.log("Sign up successful!");
+            toast.success("Account created! You are now signed in.");
             
             // Close the modal
-            (document.getElementById("signin") as HTMLDialogElement)?.close();
+            (document.getElementById("signup") as HTMLDialogElement)?.close();
             
-            // Force refresh to the admin page
+            // Navigate to admin page
             setTimeout(() => {
               window.location.href = "/admin";
             }, 500);
           } catch (err) {
-            console.error("Sign in error:", err);
+            console.error("Sign up error:", err);
             const message = err instanceof Error ? err.message : "Unknown error";
             setError(message);
-            toast.error(`Authentication failed: ${message}`);
+            toast.error(`Account creation failed: ${message}`);
           } finally {
             setSubmitting(false);
           }
@@ -61,16 +61,17 @@ export function SignInForm() {
           className="input-field p-2 border rounded"
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Password (minimum 8 characters)"
           required
+          minLength={8}
         />
         {error && <div className="text-red-600 text-sm mt-1">{error}</div>}
         <button 
-          className="auth-button bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+          className="auth-button bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition"
           type="submit" 
           disabled={submitting}
         >
-          {submitting ? "Signing in..." : "Sign in"}
+          {submitting ? "Creating Account..." : "Create Account"}
         </button>
       </form>
     </div>

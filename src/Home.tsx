@@ -1,23 +1,14 @@
 // src/pages/Home.tsx
-// === React routing and data fetching ===
-import { Routes, Route, Navigate } from "react-router-dom"
-import { useQuery } from "convex/react"
-import { api } from "../convex/_generated/api"
+import { useQuery } from "convex/react"; // Still needed if other parts of HomePage use queries
+import { api } from "../convex/_generated/api"; // Still needed
 
 import React from "react";
-import { SignInForm } from "./SignInForm"
-import { SignOutButton } from "./SignOutButton"
-import { AdminDashboard } from "./AdminDashboard"
-import { BookingCalendar } from "./BookingCalendar"
-import { ServiceCalculator } from "./ServiceCalculator"
-
-
-// Admin-only route protection
-function AdminRoute() {
-  const me = useQuery(api.auth.loggedInUser);
-  if (me === undefined) return null;
-  return me ? <AdminDashboard /> : <Navigate to="/" replace />;
-}
+// Removed SignInForm, SignUpForm, SignOutButton imports as they are handled by the global Header
+// import { SignInForm } from "./SignInForm";
+// import { SignUpForm } from "./SignUpForm";
+// import { SignOutButton } from "./SignOutButton";
+import { BookingCalendar } from "./BookingCalendar";
+import { ServiceCalculator } from "./ServiceCalculator";
 
 function ServicesLayout() {
   return (
@@ -34,57 +25,19 @@ function ServicesLayout() {
   );
 }
 
-
 export default function HomePage() {
-    const me = useQuery(api.auth.loggedInUser);
+  // No longer need 'me' or 'signUpsEnabled' for header logic,
+  // as the global Header in App.tsx handles that.
+  // const me = useQuery(api.auth.loggedInUser);
+  // const signUpsEnabled = useQuery(api.auth.signUpsEnabled);
 
   return (
     <div className="bg-white text-gray-900">
-      {/* Header */}
-        <header className="bg-[#0f3d2e] text-white sticky top-0 z-50 shadow-md">
-            <div className="w-full px-4 py-4 flex justify-between items-center">
-                <h1 className="text-xs sm:text-xl font-bold whitespace-nowrap">
-                Cherokee Landscaping
-                </h1>
-                <nav className="flex items-center gap-x-4 text-xs sm:text-base font-medium whitespace-nowrap">
-                <a href="#services" className="hover:text-lime-400">Services</a>
-                <a href="#about" className="hover:text-lime-400">About</a>
-                <a href="#pricing" className="hover:text-lime-400">Pricing</a>
-                {me ? (
-                    <>
-                    <a href="/admin" className="hover:text-lime-400">Admin</a>
-                    <SignOutButton />
-                    </>
-                ) : (
-                    <button
-                    onClick={() =>
-                        (document.getElementById("signin") as HTMLDialogElement)?.showModal()
-                    }
-                    className="hover:text-lime-400 transition"
-                    >
-                    Login
-                    </button>
-                )}
-                </nav>
-            </div>
-            </header>
+      {/* Header is now global, rendered by App.tsx - REMOVE FROM HERE */}
+      {/* Login Modal is now global - REMOVE FROM HERE */}
+      {/* Sign Up Modal is now global - REMOVE FROM HERE */}
 
-
-        {/* Login Modal */}
-      <dialog id="signin" className="p-6 rounded-lg shadow-xl backdrop:bg-black/20">
-        <SignInForm />
-        <button
-          onClick={() =>
-            (document.getElementById("signin") as HTMLDialogElement)?.close()
-          }
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-        >
-          ✕
-        </button>
-      </dialog>
-
-
-      {/* Hero */}
+      {/* Hero Section */}
       <section
         className="relative h-[90vh] flex items-center justify-center text-center"
         style={{
@@ -113,88 +66,44 @@ export default function HomePage() {
       </section>
 
       {/* Feature Highlights */}
-        <section className="bg-gray-100 py-16 px-4">
+      <section className="bg-gray-100 py-16 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center">
-            
-            {/* Step 1: Consultation */}
-            <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-1/3">
+          <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-1/3">
             <h3 className="text-xl font-semibold mb-2">1. On-Site Consultation</h3>
             <p className="text-gray-600">
-                We walk your property, discuss your goals, and draft a lighting plan tailored to your needs.
+              We walk your property, discuss your goals, and draft a lighting plan tailored to your needs.
             </p>
-            </div>
-
-            {/* Arrow – Right on desktop, down on mobile */}
-            <div className="flex justify-center items-center">
-            {/* Down arrow (mobile only) */}
-            <svg
-                className="w-6 h-6 text-blue-400 block md:hidden"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-            >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </div>
+          <div className="flex justify-center items-center">
+            <svg className="w-6 h-6 text-blue-400 block md:hidden" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
-
-            {/* Right arrow (desktop only) */}
-            <svg
-                className="w-8 h-8 text-blue-400 hidden md:block"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-            >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            <svg className="w-8 h-8 text-blue-400 hidden md:block" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
-            </div>
-
-
-            {/* Step 2: Installation */}
-            <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-1/3">
+          </div>
+          <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-1/3">
             <h3 className="text-xl font-semibold mb-2">2. Fast, Clean Installation</h3>
             <p className="text-gray-600">
-                Our team installs everything — lights, wiring, and smart timers — in just 1–2 days with minimal disruption.
+              Our team installs everything — lights, wiring, and smart timers — in just 1–2 days with minimal disruption.
             </p>
-            </div>
-
-            {/* Arrow – Right on desktop, down on mobile */}
-            <div className="flex justify-center items-center">
-            {/* Down arrow (mobile only) */}
-            <svg
-                className="w-6 h-6 text-blue-400 block md:hidden"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-            >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </div>
+          <div className="flex justify-center items-center">
+            <svg className="w-6 h-6 text-blue-400 block md:hidden" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
-
-            {/* Right arrow (desktop only) */}
-            <svg
-                className="w-8 h-8 text-blue-400 hidden md:block"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-            >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            <svg className="w-8 h-8 text-blue-400 hidden md:block" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
-            </div>
-
-
-            {/* Step 3: Walkthrough */}
-            <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-1/3">
+          </div>
+          <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-1/3">
             <h3 className="text-xl font-semibold mb-2">3. Nighttime Walkthrough</h3>
             <p className="text-gray-600">
-                Once installed, we fine-tune angles, adjust brightness, and ensure everything looks perfect — live, after dark.
+              Once installed, we fine-tune angles, adjust brightness, and ensure everything looks perfect — live, after dark.
             </p>
-            </div>
+          </div>
         </div>
-        </section>
-
-
+      </section>
 
       {/* Testimonials */}
       <section className="bg-gray-100 py-16 px-4">
@@ -219,10 +128,9 @@ export default function HomePage() {
       </section>
 
       {/* SCHEDULING AND BOOKING */}
-    <section className="bg-gray-100 py-2 sm:py-16 px-4">
+      <section className="bg-gray-100 py-2 sm:py-16 px-4">
         <ServicesLayout />
-    </section>
-
+      </section>
 
       {/* Footer */}
       <footer className="bg-[#111827] text-white py-10 px-4">
@@ -237,6 +145,9 @@ export default function HomePage() {
               <li><a href="#services" className="hover:underline">Services</a></li>
               <li><a href="#pricing" className="hover:underline">Pricing</a></li>
               <li><a href="#about" className="hover:underline">About</a></li>
+              {/* The Login link here might be redundant if the global header handles it,
+                  but can be kept if it scrolls to a specific section or has other behavior.
+                  For now, it's a simple link. */}
               <li><a href="#login" className="hover:underline">Login</a></li>
             </ul>
           </div>
