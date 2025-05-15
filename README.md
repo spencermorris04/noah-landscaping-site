@@ -99,21 +99,13 @@ A modern, single-page web app for booking and managing landscaping consultations
 
 4. **Get Your Convex Environment Variables**
 
-- In your Convex dashboard, go to your project’s **Settings**.
-- Find your **Deploy Key** and **Deployment Name**.
-- You’ll also need your **Convex Cloud URL** (shown in the dashboard).
+- In your Convex dashboard, find the **Convex Cloud URL**.
 
 5. **Configure Your Local Environment**
 
 Create a `.env` file in the root of your project and add the following (replace with your actual values):
 
 ```env
-# Convex deploy key (keep this secret!)
-CONVEX_DEPLOY_KEY=project:your-email:your-project-name|your-key
-
-# Deployment used by `npx convex dev`
-CONVEX_DEPLOYMENT=dev:your-deployment-name
-
 # Convex Cloud URL for your deployment
 VITE_CONVEX_URL=https://your-deployment-name.convex.cloud
 ```
