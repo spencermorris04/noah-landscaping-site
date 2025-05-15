@@ -95,37 +95,32 @@ export default function Header() {
               <a href="/admin" className="hover:text-lime-400">Admin</a>
               <SignOutButton />
             </>
-          ) : signUpsEnabled === undefined ? null : signUpsEnabled ? (
-            <>
-              <button
-                onClick={() =>
-                  (document.getElementById('global-signin-modal') as HTMLDialogElement)
-                    ?.showModal()
-                }
-                className="hover:text-lime-400 transition"
-              >
-                Login
-              </button>
-              <button
-                onClick={() =>
-                  (document.getElementById('global-signup-modal') as HTMLDialogElement)
-                    ?.showModal()
-                }
-                className="hover:text-lime-400 transition text-green-400"
-              >
-                Sign Up
-              </button>
-            </>
           ) : (
+            <>
+          {/* 1) Always show Login */}
+          <button
+            onClick={() =>
+              (document.getElementById('global-signin-modal') as HTMLDialogElement)
+                ?.showModal()
+            }
+            className="hover:text-lime-400 transition"
+          >
+            Login
+          </button>
+
+          {/* 2) Only show Sign Up if enabled */}
+          {signUpsEnabled && (
             <button
               onClick={() =>
-                (document.getElementById('global-signin-modal') as HTMLDialogElement)
+                (document.getElementById('global-signup-modal') as HTMLDialogElement)
                   ?.showModal()
               }
-              className="hover:text-lime-400 transition"
+              className="hover:text-lime-400 transition text-green-400"
             >
-              Login
+              Sign Up
             </button>
+          )}
+            </>
           )}
         </nav>
       </div>
