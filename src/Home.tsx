@@ -1,7 +1,7 @@
 // src/pages/Home.tsx
 import { useQuery } from "convex/react"; // Still needed if other parts of HomePage use queries
 import { api } from "../convex/_generated/api"; // Still needed
-
+import Gallery from './Gallery';
 import React from "react";
 // Removed SignInForm, SignUpForm, SignOutButton imports as they are handled by the global Header
 // import { SignInForm } from "./SignInForm";
@@ -128,9 +128,12 @@ export default function HomePage() {
       </section>
 
       {/* SCHEDULING AND BOOKING */}
-      <section className="bg-gray-100 py-2 sm:py-16 px-4">
+      <section id="quote" className="bg-gray-100 py-2 sm:py-16 px-4">
         <ServicesLayout />
       </section>
+
+      {/* GALLERY OF PAST PROJECTS */}
+      <Gallery />
 
       {/* Footer */}
       <footer className="bg-[#111827] text-white py-10 px-4">
