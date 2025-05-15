@@ -12,14 +12,9 @@ import { ServiceCalculator } from "./ServiceCalculator";
 
 function ServicesLayout() {
   return (
-    <section className="w-full px-4 sm:px-10 lg:px-16 py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-        <div className="w-full">
-          <ServiceCalculator />
-        </div>
-        <div className="w-full">
-          <BookingCalendar />
-        </div>
+    <section className="flex justify-center px-4 sm:px-10 lg:px-16 py-12">
+      <div className="w-full sm:w-3/4 md:w-2/5">
+        <BookingCalendar />
       </div>
     </section>
   );

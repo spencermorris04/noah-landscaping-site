@@ -1,44 +1,64 @@
-// src/pages/ResidentialServices.tsx
+// src/pages/LightingInstallation.tsx
 import React from 'react';
+import { ServiceCalculator } from '../ServiceCalculator';
 
-export default function ResidentialServices() {
+export default function LightingInstallation() {
   return (
     <div className="bg-white text-gray-900 flex flex-col">
-      {/* Hero section without image */}
-      <header className="bg-[#0f3d2e] flex items-center justify-center h-48">
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white">
-          Residential Landscaping
+      {/* Hero */}
+      <header className="bg-[#0f3d2e] py-16 text-center">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+          Landscape Lighting Installation
         </h1>
       </header>
 
-      {/* Content section */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className="space-y-6">
-          <h2 className="text-2xl font-semibold text-[#0f3d2e]">Our Approach</h2>
-          <p className="text-gray-700 leading-relaxed">
-            At Cherokee Landscaping, we transform your outdoor space into a
-            vibrant, functional environment. Our team handles everything from
-            initial design sketches to final installation and ongoing care,
-            ensuring your lawn and garden thrive in every season.
-          </p>
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        {/* Process */}
+        <section>
+          <h2 className="text-2xl font-semibold text-[#0f3d2e] mb-4">
+            Our Installation Process
+          </h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-700">
+            <li>
+              <strong>Consultation &amp; Design:</strong> Evaluate your property
+              at dusk, identify focal points, and plan optimal fixture placement.
+            </li>
+            <li>
+              <strong>Layout & Quotation:</strong> Recommend fixtures,
+              transformers, cable runs, then provide a transparent quote.
+            </li>
+            <li>
+              <strong>Wiring & Mounting:</strong> Install low-voltage cable,
+              secure mounts, and conceal wiring for a clean look.
+            </li>
+            <li>
+              <strong>Configuration & Testing:</strong> Mount each light,
+              configure transformer and controls, then test in day/night modes.
+            </li>
+            <li>
+              <strong>Training & Support:</strong> Walk through system operation
+              and provide 30-day follow-up plus 1-year labor warranty.
+            </li>
+          </ol>
+        </section>
 
-          <h3 className="text-xl font-semibold text-[#0f3d2e]">Services Included</h3>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
-            <li>Custom garden & hardscape design</li>
-            <li>Lawn installation & seasonal maintenance</li>
-            <li>Planting, mulching, pruning & edging</li>
-            <li>Irrigation setup & water management</li>
-          </ul>
-        </div>
+        {/* Interactive Calculator */}
+        <section>
+          <h2 className="text-2xl font-semibold text-[#0f3d2e] mb-6">
+            Design Your Lighting &amp; Get an Instant Estimate
+          </h2>
+          <ServiceCalculator />
+        </section>
 
-        <div className="flex items-center justify-center">
+        {/* Call to action */}
+        <section className="text-center">
           <a
             href="/contact"
-            className="px-6 py-3 bg-[#0f3d2e] text-white font-medium rounded-md hover:bg-lime-400 transition"
+            className="inline-block px-8 py-4 bg-lime-400 text-[#0f3d2e] font-semibold rounded-md hover:bg-lime-500 transition"
           >
-            Request a Quote
+            Ready to Book? Contact Us
           </a>
-        </div>
+        </section>
       </main>
     </div>
   );

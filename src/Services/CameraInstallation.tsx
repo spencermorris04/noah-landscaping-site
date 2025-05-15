@@ -1,44 +1,121 @@
-// src/pages/ResidentialServices.tsx
+// src/pages/CameraInstallation.tsx
 import React from 'react';
 
-export default function ResidentialServices() {
+export default function CameraInstallation() {
   return (
     <div className="bg-white text-gray-900 flex flex-col">
-      {/* Hero section without image */}
-      <header className="bg-[#0f3d2e] flex items-center justify-center h-48">
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white">
-          Residential Landscaping
+      {/* Hero */}
+      <header className="bg-[#0f3d2e] py-16 text-center">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+          Camera Installation Services
         </h1>
       </header>
 
-      {/* Content section */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className="space-y-6">
-          <h2 className="text-2xl font-semibold text-[#0f3d2e]">Our Approach</h2>
-          <p className="text-gray-700 leading-relaxed">
-            At Cherokee Landscaping, we transform your outdoor space into a
-            vibrant, functional environment. Our team handles everything from
-            initial design sketches to final installation and ongoing care,
-            ensuring your lawn and garden thrive in every season.
-          </p>
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        {/* Process */}
+        <section>
+          <h2 className="text-2xl font-semibold text-[#0f3d2e] mb-4">
+            Our Installation Process
+          </h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-700">
+            <li>
+              <strong>Consultation &amp; Site Survey:</strong> We evaluate your
+              property, discuss coverage needs, and recommend optimal camera
+              placement.
+            </li>
+            <li>
+              <strong>System Design &amp; Quotation:</strong> We draft a custom
+              layout with cable pathways, power requirements, and equipment
+              specifications—then deliver a clear, no-surprise quote.
+            </li>
+            <li>
+              <strong>Wiring &amp; Mounting:</strong> Our team runs low-voltage
+              cable, installs mounts/brackets, and conceals wiring for a
+              clean, professional finish.
+            </li>
+            <li>
+              <strong>Camera Setup &amp; Configuration:</strong> We mount each
+              camera, adjust angles, configure DVR/NVR settings, and integrate
+              remote viewing on your smartphone or computer.
+            </li>
+            <li>
+              <strong>Testing &amp; Training:</strong> Full system walk-through,
+              performance check in day/night modes, and a brief tutorial on
+              live playback, recording, and alerts.
+            </li>
+            <li>
+              <strong>Follow-Up Support:</strong> 30-day check-in and a 1-year
+              warranty on labor to ensure everything runs smoothly.
+            </li>
+          </ol>
+        </section>
 
-          <h3 className="text-xl font-semibold text-[#0f3d2e]">Services Included</h3>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
-            <li>Custom garden & hardscape design</li>
-            <li>Lawn installation & seasonal maintenance</li>
-            <li>Planting, mulching, pruning & edging</li>
-            <li>Irrigation setup & water management</li>
-          </ul>
-        </div>
+        {/* Pricing */}
+        <section>
+          <h2 className="text-2xl font-semibold text-[#0f3d2e] mb-8">
+            Pricing Packages
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Basic */}
+            <div className="flex flex-col bg-white rounded-lg shadow border border-green-100">
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-xl font-semibold text-[#0f3d2e] mb-2">
+                  Basic
+                </h3>
+                <p className="text-2xl font-bold mb-4">$100 / camera</p>
+                <ul className="list-disc list-inside text-gray-700 space-y-2 flex-1">
+                  <li>Mounting &amp; angle adjustment</li>
+                  <li>Basic DVR configuration</li>
+                  <li>Up to 30 ft of cable</li>
+                  <li>30-day support</li>
+                </ul>
+              </div>
+            </div>
 
-        <div className="flex items-center justify-center">
+            {/* Standard */}
+            <div className="flex flex-col bg-white rounded-lg shadow border border-green-100">
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-xl font-semibold text-[#0f3d2e] mb-2">
+                  Standard
+                </h3>
+                <p className="text-2xl font-bold mb-4">$150 / camera</p>
+                <ul className="list-disc list-inside text-gray-700 space-y-2 flex-1">
+                  <li>Includes Basic plus:</li>
+                  <li>Up to 75 ft of cable</li>
+                  <li>Motion-detection setup</li>
+                  <li>Smartphone &amp; remote access</li>
+                  <li>90-day support &amp; warranty</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Premium */}
+            <div className="flex flex-col bg-white rounded-lg shadow border border-green-100">
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-xl font-semibold text-[#0f3d2e] mb-2">
+                  Premium
+                </h3>
+                <p className="text-2xl font-bold mb-4">$200 / camera</p>
+                <ul className="list-disc list-inside text-gray-700 space-y-2 flex-1">
+                  <li>All Standard features</li>
+                  <li>Unlimited cable length</li>
+                  <li>24/7 motion alerts &amp; cloud backup</li>
+                  <li>1-year full support &amp; maintenance</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Call to action */}
+        <section className="text-center">
           <a
             href="/contact"
-            className="px-6 py-3 bg-[#0f3d2e] text-white font-medium rounded-md hover:bg-lime-400 transition"
+            className="inline-block px-8 py-4 bg-lime-400 text-[#0f3d2e] font-semibold rounded-md hover:bg-lime-500 transition"
           >
-            Request a Quote
+            Get a Free Quote
           </a>
-        </div>
+        </section>
       </main>
     </div>
   );

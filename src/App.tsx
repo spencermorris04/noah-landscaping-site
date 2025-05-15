@@ -16,6 +16,9 @@ import LawnMowing from "./Services/LawnMowing";
 import Lighting from "./Services/Lighting";
 import WeedRemoval from "./Services/WeedRemoval";
 import Mulching from "./Services/Mulching";
+import AboutPage from "./pages/About";
+import ContactPage from "./pages/Contact";
+import { Contact } from "lucide-react";
 
 // Admin-only route protection: redirects if not logged in
 function AdminRoute() {
@@ -39,8 +42,8 @@ export default function App() {
           <Route path="/admin" element={<AdminRoute />} />
           {/* Define routes for /services, /about, /pricing if you create those pages */}
           {/* <Route path="/services" element={<ServicesPage />} /> */}
-          {/* <Route path="/about" element={<AboutPage />} /> */}
-          {/* <Route path="/pricing" element={<PricingPage />} /> */}
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
       <Toaster position="top-center" />

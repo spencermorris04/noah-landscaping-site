@@ -88,7 +88,6 @@ export default function Header() {
           </div>
 
           <a href="/about" className="hover:text-lime-400">About</a>
-          <a href="/pricing" className="hover:text-lime-400">Pricing</a>
 
           {me ? (
             <>
