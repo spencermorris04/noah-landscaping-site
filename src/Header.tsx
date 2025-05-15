@@ -108,7 +108,7 @@ export default function Header() {
             Login
           </button>
 
-          {/* 2) Only show Sign Up if enabled */}
+          {/* 2) Only show Sign Up if enabled 
           {signUpsEnabled && (
             <button
               onClick={() =>
@@ -119,7 +119,7 @@ export default function Header() {
             >
               Sign Up
             </button>
-          )}
+          )}*/}
             </>
           )}
         </nav>
