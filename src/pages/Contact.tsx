@@ -58,7 +58,7 @@ export default function ContactPage() {
           {/* Address & Hours */}
           <div>
             <p className="font-medium">Address</p>
-            <p>161 Boling Ct, Hometown, GA 30028</p>
+            <p>161 Boling Ct, Cumming, GA 30028</p>
           </div>
           <div>
             <p className="font-medium">Business Hours</p>
