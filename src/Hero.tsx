@@ -1,47 +1,49 @@
-import { motion } from "framer-motion"
-import { TestimonialSlider } from "./testimonials"
+// src/components/Hero.tsx
+import React from 'react';
+import { motion } from 'framer-motion';
+import { TestimonialSlider } from './testimonials';
 
 export function Hero() {
   return (
     <section
-      className="relative h-[90vh] bg-cover bg-center text-white"
+      className="relative h-[70vh] sm:h-[75vh] md:h-[85vh] bg-cover bg-center text-white"
       style={{ backgroundImage: "url('/HeroImage.jpg')" }}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 dark:from-black/90" />
+      {/* dark gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
 
-      <div className="relative z-10 h-full w-full max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
-        {/* Left: Text */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 py-6 flex flex-col-reverse md:flex-row items-center justify-between gap-6">
+        {/* Text block */}
         <motion.div
-            className="flex-1 max-w-xl text-left"
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+          className="w-full md:w-1/2 text-center md:text-left"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
         >
-            <h1 className="text-5xl font-display font-bold mb-4 drop-shadow-lg">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 drop-shadow-md">
             Upgrade Your Lawn
-            </h1>
-            <p className="text-xl mb-6 text-white/90">
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6">
             Get your outdoor lighting now
-            </p>
-            <a
+          </p>
+          <a
             href="#calendar"
-            className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 transition rounded-lg text-white text-lg font-semibold shadow-lg"
-            >
+            className="block sm:inline-block w-full sm:w-auto px-6 py-3 bg-lime-400 hover:bg-lime-500 rounded-md text-[#0f3d2e] text-lg font-semibold shadow-lg transition"
+          >
             Book a Free Consultation
-            </a>
+          </a>
         </motion.div>
 
-        {/* Right: Testimonial */}
+        {/* Testimonial slider */}
         <motion.div
-            className="flex-1 min-w-[280px] max-w-md"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2 }}
+          className="w-full md:w-1/2 max-w-md"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
         >
-            <TestimonialSlider />
+          <TestimonialSlider />
         </motion.div>
-        </div>
-
+      </div>
     </section>
-  )
+  );
 }

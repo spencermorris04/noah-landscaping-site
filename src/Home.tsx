@@ -101,26 +101,40 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-gray-100 py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <blockquote className="italic text-lg mb-4">
-            "Our front yard looks like a luxury estate at night. Install was done in a day!"
-          </blockquote>
-          <p className="font-semibold">— Sarah L., Roswell, GA</p>
+      <section id="testimonials" className="bg-gray-100 py-16 px-4">
+        <div className="max-w-5xl mx-auto text-center mb-8">
+          <h2 className="text-2xl font-semibold text-[#0f3d2e]">
+            What Clients Say
+          </h2>
         </div>
-        <div className="max-w-3xl mx-auto text-center mt-12">
-          <blockquote className="italic text-lg mb-4">
-            "Fast, friendly, and flawless. Our backyard is now the place to be after dark."
-          </blockquote>
-          <p className="font-semibold">— Jason M., Alpharetta, GA</p>
-        </div>
-        <div className="max-w-3xl mx-auto text-center mt-12">
-          <blockquote className="italic text-lg mb-4">
-            "Super hard-working kid who knew what he was doing. 10/10 would recommend!"
-          </blockquote>
-          <p className="font-semibold">— Nick R., Canton, GA</p>
+        <div className="max-w-7xl mx-auto grid gap-8 md:grid-cols-3">
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <blockquote className="italic text-gray-800 leading-relaxed mb-4 border-l-4 border-lime-400 pl-4">
+              “Our front yard looks like a luxury estate at night. Install was done in a day!”
+            </blockquote>
+            <p className="text-gray-600 font-semibold text-right">
+              — Sarah L., Roswell, GA
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <blockquote className="italic text-gray-800 leading-relaxed mb-4 border-l-4 border-lime-400 pl-4">
+              “Fast, friendly, and flawless. Our backyard is now the place to be after dark.”
+            </blockquote>
+            <p className="text-gray-600 font-semibold text-right">
+              — Jason M., Alpharetta, GA
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <blockquote className="italic text-gray-800 leading-relaxed mb-4 border-l-4 border-lime-400 pl-4">
+              “Super hard-working kid who knew what he was doing. 10/10 would recommend!”
+            </blockquote>
+            <p className="text-gray-600 font-semibold text-right">
+              — Nick R., Canton, GA
+            </p>
+          </div>
         </div>
       </section>
+
 
       {/* SCHEDULING AND BOOKING */}
       <section id="quote" className="bg-gray-100 py-2 sm:py-16 px-4">
