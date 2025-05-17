@@ -6,6 +6,7 @@ import { ConvexReactClient } from "convex/react";
 import { PostHogProvider } from "posthog-js/react";
 import "./index.css";
 import App from "./App";
+import { AnalyticsTracker } from './AnalyticsTracker';
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
 
@@ -20,7 +21,9 @@ createRoot(document.getElementById("root")!).render(
     >
       <ConvexAuthProvider client={convex}>
         <BrowserRouter>
-          <App />
+          <AnalyticsTracker />
+            <App />
+
         </BrowserRouter>
       </ConvexAuthProvider>
     </PostHogProvider>
