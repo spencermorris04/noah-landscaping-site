@@ -1,7 +1,32 @@
 // src/pages/ContactPage.tsx
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('sending');
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch('https://formspree.io/f/mldbzovw', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <div className="bg-white text-gray-900 flex flex-col">
       {/* Page Header */}
@@ -16,7 +41,7 @@ export default function ContactPage() {
         {/* Contact Info & Quick Links */}
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold text-[#0f3d2e]">Get in Touch</h2>
-          
+
           {/* Phone */}
           <div>
             <p className="font-medium">Phone</p>
@@ -68,7 +93,7 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Form */}
-        <form className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <h2 className="text-2xl font-semibold text-[#0f3d2e]">Send a Message</h2>
 
           <div>
@@ -77,6 +102,7 @@ export default function ContactPage() {
             </label>
             <input
               id="name"
+              name="name"
               type="text"
               required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-lime-400"
@@ -89,6 +115,7 @@ export default function ContactPage() {
             </label>
             <input
               id="email"
+              name="email"
               type="email"
               required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-lime-400"
@@ -101,6 +128,7 @@ export default function ContactPage() {
             </label>
             <textarea
               id="message"
+              name="message"
               rows={5}
               required
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-lime-400"
@@ -109,10 +137,21 @@ export default function ContactPage() {
 
           <button
             type="submit"
-            className="w-full px-5 py-3 bg-[#0f3d2e] text-white font-medium rounded-md hover:bg-[#0f3d2e]/90 transition"
+            disabled={status === 'sending'}
+            className="w-full px-5 py-3 bg-[#0f3d2e] text-white font-medium rounded-md hover:bg-[#0f3d2e]/90 transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Submit
+            {status === 'sending'
+              ? 'Sending…'
+              : status === 'success'
+              ? 'Thanks! We’ll be in touch.'
+              : 'Submit'}
           </button>
+
+          {status === 'error' && (
+            <p className="text-red-600 text-sm">
+              Oops! Something went wrong. Please try again.
+            </p>
+          )}
         </form>
       </main>
     </div>
