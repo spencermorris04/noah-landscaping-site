@@ -7,18 +7,9 @@ import React from "react";
 // import { SignInForm } from "./SignInForm";
 // import { SignUpForm } from "./SignUpForm";
 // import { SignOutButton } from "./SignOutButton";
-import { BookingCalendar } from "./BookingCalendar";
+import  {BookingCalendar}  from "./BookingCalendar";
 import { ServiceCalculator } from "./ServiceCalculator";
 
-function ServicesLayout() {
-  return (
-    <section className="flex justify-center px-4 sm:px-10 lg:px-16 py-12">
-      <div className="w-full sm:w-3/4 md:w-2/5">
-        <BookingCalendar />
-      </div>
-    </section>
-  );
-}
 
 export default function HomePage() {
   // No longer need 'me' or 'signUpsEnabled' for header logic,
@@ -137,9 +128,30 @@ export default function HomePage() {
 
 
       {/* SCHEDULING AND BOOKING */}
-      <section id="quote" className="bg-gray-100 py-2 sm:py-16 px-4">
-        <ServicesLayout />
+      <section id="quote" className="bg-green-50 py-16 px-4 sm:px-8 lg:px-16">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left Side: Pitch or Call to Action */}
+          <div className="flex flex-col justify-center space-y-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3d2e] leading-tight">
+              Book a Free Consultation
+            </h2>
+            <p className="text-lg text-[#0f3d2e]/80">
+              We'll walk your property, design a custom lighting plan, and install everything within days. No obligations.
+            </p>
+            <ul className="text-[#0f3d2e] space-y-2 text-base">
+              <li>✓ 100% free walk-through</li>
+              <li>✓ Real installation timeline & cost</li>
+              <li>✓ No hard sales — just solid planning</li>
+            </ul>
+          </div>
+
+          {/* Right Side: Calendar */}
+          <div className="min-w-0 w-full">
+            <BookingCalendar />
+          </div>
+        </div>
       </section>
+
 
       {/* GALLERY OF PAST PROJECTS */}
       <Gallery />
@@ -154,13 +166,12 @@ export default function HomePage() {
           <div>
             <h4 className="font-bold text-lg mb-2">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#services" className="hover:underline">Services</a></li>
-              <li><a href="#pricing" className="hover:underline">Pricing</a></li>
-              <li><a href="#about" className="hover:underline">About</a></li>
+              <li><a href="/services/lighting" className="hover:underline">Services</a></li>
+              <li><a href="/contact" className="hover:underline">Contact Us</a></li>
+              <li><a href="/about" className="hover:underline">About</a></li>
               {/* The Login link here might be redundant if the global header handles it,
                   but can be kept if it scrolls to a specific section or has other behavior.
                   For now, it's a simple link. */}
-              <li><a href="#login" className="hover:underline">Login</a></li>
             </ul>
           </div>
           <div>
