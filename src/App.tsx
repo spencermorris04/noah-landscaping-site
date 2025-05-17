@@ -1,6 +1,7 @@
 // App.tsx
 
 import { Routes, Route, Navigate } from "react-router-dom";
+import ReactDOM from 'react-dom/client'
 import { useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
 
@@ -19,6 +20,9 @@ import Mulching from "./Services/Mulching";
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
 import { Contact } from "lucide-react";
+import posthog from 'posthog-js';
+import { PostHogProvider } from 'posthog-js/react';
+
 
 // Admin-only route protection: redirects if not logged in
 function AdminRoute() {
@@ -29,24 +33,25 @@ function AdminRoute() {
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header /> {/* Global Header is rendered here, above the routes */}
-      <main className="flex-1"> {/* This will contain the page content */}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/services/CameraInstallation" element={<CameraInstallation />} />
-          <Route path="/services/LawnMowing" element={<LawnMowing />} />
-          <Route path="/services/Lighting" element={<Lighting />} />
-          <Route path="/services/WeedRemoval" element={<WeedRemoval />} />
-          <Route path="/services/Mulching" element={<Mulching />} />
-          <Route path="/admin" element={<AdminRoute />} />
-          {/* Define routes for /services, /about, /pricing if you create those pages */}
-          {/* <Route path="/services" element={<ServicesPage />} /> */}
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </main>
-      <Toaster position="top-center" />
-    </div>
+
+          <div className="flex flex-col min-h-screen">
+            <Header /> {/* Global Header is rendered here, above the routes */}
+            <main className="flex-1"> {/* This will contain the page content */}
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/services/CameraInstallation" element={<CameraInstallation />} />
+                <Route path="/services/LawnMowing" element={<LawnMowing />} />
+                <Route path="/services/Lighting" element={<Lighting />} />
+                <Route path="/services/WeedRemoval" element={<WeedRemoval />} />
+                <Route path="/services/Mulching" element={<Mulching />} />
+                <Route path="/admin" element={<AdminRoute />} />
+                {/* Define routes for /services, /about, /pricing if you create those pages */}
+                {/* <Route path="/services" element={<ServicesPage />} /> */}
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+              </Routes>
+            </main>
+            <Toaster position="top-center" />
+          </div>
   );
 }
