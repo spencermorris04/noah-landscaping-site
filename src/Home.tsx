@@ -177,7 +177,7 @@ export default function HomePage() {
           <div>
             <h4 className="font-bold text-lg mb-2">Contact</h4>
             <p>Email: info@cherokeelandscaping.com</p>
-            <p>Phone: (555) 123-4567</p>
+            <p>Phone: (470) 641-8216</p>
             <p>Mon–Sat: 8am–6pm</p>
           </div>
         </div>
