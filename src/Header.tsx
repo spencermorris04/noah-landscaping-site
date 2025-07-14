@@ -52,6 +52,24 @@ export default function Header() {
             </button>
             {servicesOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-[#0f3d2e] text-white rounded-md shadow-lg z-50">
+                  <a
+                    href="/services/pressure-washing"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Pressure Washing
+                  </a>
+                  <a
+                    href="/services/lighting"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Landscape Lighting
+                  </a>
+                  <a
+                    href="/services/window-cleaning"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Window Cleaning
+                  </a>
                 <a
                   href="/services/CameraInstallation"
                   className="block px-4 py-2 hover:bg-lime-600"
@@ -63,12 +81,6 @@ export default function Header() {
                   className="block px-4 py-2 hover:bg-lime-600"
                 >
                   Lawn Mowing
-                </a>
-                <a
-                  href="/services/Lighting"
-                  className="block px-4 py-2 hover:bg-lime-600"
-                >
-                  Lighting
                 </a>
                 <a
                   href="/services/Mulching"

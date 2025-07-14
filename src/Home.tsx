@@ -1,177 +1,147 @@
 // src/pages/Home.tsx
-import { useQuery } from "convex/react"; // Still needed if other parts of HomePage use queries
-import { api } from "../convex/_generated/api"; // Still needed
-import Gallery from './Gallery';
 import React from "react";
-// Removed SignInForm, SignUpForm, SignOutButton imports as they are handled by the global Header
-// import { SignInForm } from "./SignInForm";
-// import { SignUpForm } from "./SignUpForm";
-// import { SignOutButton } from "./SignOutButton";
-import  {BookingCalendar}  from "./BookingCalendar";
-import { ServiceCalculator } from "./ServiceCalculator";
-
+import ServicesGrid from "./ServicesGrid";
+import Gallery from "./Gallery";
+import { BookingCalendar } from "./BookingCalendar";
 
 export default function HomePage() {
-  // No longer need 'me' or 'signUpsEnabled' for header logic,
-  // as the global Header in App.tsx handles that.
-  // const me = useQuery(api.auth.loggedInUser);
-  // const signUpsEnabled = useQuery(api.auth.signUpsEnabled);
-
   return (
-    <div className="bg-white text-gray-900">
-      {/* Header is now global, rendered by App.tsx - REMOVE FROM HERE */}
-      {/* Login Modal is now global - REMOVE FROM HERE */}
-      {/* Sign Up Modal is now global - REMOVE FROM HERE */}
-
-      {/* Hero Section */}
+    <div className="bg-gray-50 text-gray-800 font-sans">
+      {/* HERO */}
       <section
-        className="relative h-[90vh] flex items-center justify-center text-center"
+        className="relative h-[80vh] flex items-center justify-center text-center"
         style={{
-          backgroundImage: `url('https://www.tollbrothers.com/blog/wp-content/uploads/2020/09/Woodsons-Reserve-Executive_Valen-Modern-Farmhouse_Front-Elevetion_04.jpg')`,
+          backgroundImage:
+            "url('https://www.tollbrothers.com/blog/wp-content/uploads/2020/09/Woodsons-Reserve-Executive_Valen-Modern-Farmhouse_Front-Elevetion_04.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 text-white px-4 max-w-2xl">
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
             Design. Light. Impress.
-          </h2>
+          </h1>
           <p className="text-lg md:text-xl mb-6">
-            High-impact, affordable outdoor lighting done fast.
+            High-impact, affordable outdoor lighting done right.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#quote" className="bg-lime-500 hover:bg-lime-600 text-white font-semibold px-6 py-3 rounded">
+            <a
+              href="#quote"
+              className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded transition"
+            >
               Schedule an Appointment
             </a>
-            <a href="#gallery" className="bg-white text-lime-700 border border-lime-700 hover:bg-gray-100 font-semibold px-6 py-3 rounded">
-              View Our Work
+            <a
+              href="#services"
+              className="bg-white text-primary border border-primary hover:bg-gray-100 font-semibold px-6 py-3 rounded transition"
+            >
+              Our Services
             </a>
           </div>
         </div>
       </section>
 
-      {/* Feature Highlights */}
-      <section className="bg-gray-100 py-16 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center">
-          <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-1/3">
-            <h3 className="text-xl font-semibold mb-2">1. On-Site Consultation</h3>
-            <p className="text-gray-600">
-              We walk your property, discuss your goals, and draft a lighting plan tailored to your needs.
-            </p>
-          </div>
-          <div className="flex justify-center items-center">
-            <svg className="w-6 h-6 text-blue-400 block md:hidden" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-            <svg className="w-8 h-8 text-blue-400 hidden md:block" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-          <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-1/3">
-            <h3 className="text-xl font-semibold mb-2">2. Fast, Clean Installation</h3>
-            <p className="text-gray-600">
-              Our team installs everything — lights, wiring, and smart timers — in just 1–2 days with minimal disruption.
-            </p>
-          </div>
-          <div className="flex justify-center items-center">
-            <svg className="w-6 h-6 text-blue-400 block md:hidden" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-            <svg className="w-8 h-8 text-blue-400 hidden md:block" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-          <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-1/3">
-            <h3 className="text-xl font-semibold mb-2">3. Nighttime Walkthrough</h3>
-            <p className="text-gray-600">
-              Once installed, we fine-tune angles, adjust brightness, and ensure everything looks perfect — live, after dark.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* SERVICES */}
+      <ServicesGrid />
 
-      {/* Testimonials */}
-      <section id="testimonials" className="bg-gray-100 py-16 px-4">
-        <div className="max-w-5xl mx-auto text-center mb-8">
-          <h2 className="text-2xl font-semibold text-[#0f3d2e]">
+      {/* TESTIMONIALS */}
+      <section id="testimonials" className="bg-white py-16 px-4">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h2 className="text-3xl font-bold text-primary mb-4">
             What Clients Say
           </h2>
+          <p className="text-gray-600">
+            We’re proud of our work — but our clients say it best.
+          </p>
         </div>
         <div className="max-w-7xl mx-auto grid gap-8 md:grid-cols-3">
-          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-            <blockquote className="italic text-gray-800 leading-relaxed mb-4 border-l-4 border-lime-400 pl-4">
-              “Our front yard looks like a luxury estate at night. Install was done in a day!”
-            </blockquote>
-            <p className="text-gray-600 font-semibold text-right">
-              — Sarah L., Roswell, GA
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-            <blockquote className="italic text-gray-800 leading-relaxed mb-4 border-l-4 border-lime-400 pl-4">
-              “Fast, friendly, and flawless. Our backyard is now the place to be after dark.”
-            </blockquote>
-            <p className="text-gray-600 font-semibold text-right">
-              — Jason M., Alpharetta, GA
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-            <blockquote className="italic text-gray-800 leading-relaxed mb-4 border-l-4 border-lime-400 pl-4">
-              “Super hard-working kid who knew what he was doing. 10/10 would recommend!”
-            </blockquote>
-            <p className="text-gray-600 font-semibold text-right">
-              — Nick R., Canton, GA
-            </p>
-          </div>
+          {[
+            {
+              quote:
+                "Our front yard looks like a luxury estate at night. Install was done in a day!",
+              name: "Sarah L., Roswell, GA",
+            },
+            {
+              quote:
+                "Fast, friendly, and flawless. Our backyard is now the place to be after dark.",
+              name: "Jason M., Alpharetta, GA",
+            },
+            {
+              quote:
+                "Super hard-working team that knew what they were doing. 10/10 would recommend!",
+              name: "Nick R., Canton, GA",
+            },
+          ].map((review) => (
+            <div
+              key={review.name}
+              className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-md transition"
+            >
+              <blockquote className="italic text-gray-700 leading-relaxed mb-4 border-l-4 border-primary pl-4">
+                “{review.quote}”
+              </blockquote>
+              <p className="text-gray-800 font-semibold text-right">
+                — {review.name}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
-
-      {/* SCHEDULING AND BOOKING */}
-      <section id="quote" className="bg-green-50 py-16 px-4 sm:px-8 lg:px-16">
+      {/* BOOKING */}
+      <section
+        id="quote"
+        className="bg-primary-light py-16 px-4 sm:px-8 lg:px-16"
+      >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left Side: Pitch or Call to Action */}
           <div className="flex flex-col justify-center space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3d2e] leading-tight">
+            <h2 className="text-4xl font-bold text-primary leading-tight">
               Book a Free Consultation
             </h2>
-            <p className="text-lg text-[#0f3d2e]/80">
-              We'll walk your property, design a custom lighting plan, and install everything within days. No obligations.
+            <p className="text-lg text-primary/80">
+              We’ll walk your property, design a custom lighting plan, and
+              install everything within days — no obligations.
             </p>
-            <ul className="text-[#0f3d2e] space-y-2 text-base">
+            <ul className="text-primary space-y-2 text-base">
               <li>✓ 100% free walk-through</li>
               <li>✓ Real installation timeline & cost</li>
-              <li>✓ No hard sales — just solid planning</li>
+              <li>✓ No hard sales — just great work</li>
             </ul>
           </div>
-
-          {/* Right Side: Calendar */}
           <div className="min-w-0 w-full">
             <BookingCalendar />
           </div>
         </div>
       </section>
 
-
-      {/* GALLERY OF PAST PROJECTS */}
+      {/* GALLERY */}
       <Gallery />
 
-      {/* Footer */}
-      <footer className="bg-[#111827] text-white py-10 px-4">
+      {/* FOOTER */}
+      <footer className="bg-gray-900 text-gray-100 py-10 px-4">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 text-sm">
           <div>
             <h4 className="font-bold text-lg mb-2">Cherokee Landscaping</h4>
-            <p>Lighting the way in Georgia.</p>
+            <p>Lighting the way in Cherokee County, GA.</p>
           </div>
           <div>
             <h4 className="font-bold text-lg mb-2">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="/services/lighting" className="hover:underline">Services</a></li>
-              <li><a href="/contact" className="hover:underline">Contact Us</a></li>
-              <li><a href="/about" className="hover:underline">About</a></li>
-              {/* The Login link here might be redundant if the global header handles it,
-                  but can be kept if it scrolls to a specific section or has other behavior.
-                  For now, it's a simple link. */}
+              <li>
+                <a href="/services/lighting" className="hover:underline">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="hover:underline">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="/about" className="hover:underline">
+                  About
+                </a>
+              </li>
             </ul>
           </div>
           <div>

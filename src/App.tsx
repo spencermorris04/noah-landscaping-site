@@ -19,6 +19,8 @@ import WeedRemoval from "./Services/WeedRemoval";
 import Mulching from "./Services/Mulching";
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
+import WindowCleaning from "./Services/WindowCleaning";
+import PressureWashing from "./Services/PressureWashing";
 import { Contact } from "lucide-react";
 import posthog from 'posthog-js';
 import { PostHogProvider } from 'posthog-js/react';
@@ -44,6 +46,8 @@ export default function App() {
                 <Route path="/services/Lighting" element={<Lighting />} />
                 <Route path="/services/WeedRemoval" element={<WeedRemoval />} />
                 <Route path="/services/Mulching" element={<Mulching />} />
+                <Route path="/services/Pressure-Washing" element={<PressureWashing />} />
+                <Route path="/services/Window-Cleaning" element={<WindowCleaning />} />
                 <Route path="/admin" element={<AdminRoute />} />
                 {/* Define routes for /services, /about, /pricing if you create those pages */}
                 {/* <Route path="/services" element={<ServicesPage />} /> */}

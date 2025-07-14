@@ -82,10 +82,6 @@ export default function ContactPage() {
 
           {/* Address & Hours */}
           <div>
-            <p className="font-medium">Address</p>
-            <p>161 Boling Ct, Cumming, GA 30028</p>
-          </div>
-          <div>
             <p className="font-medium">Business Hours</p>
             <p>Mon–Sat: 8 AM – 6 PM</p>
             <p>Sun: Closed</p>
